@@ -21,13 +21,20 @@ public class CameraMovement : MonoBehaviour
     }
 
     private void PanCamera(){
-        if(Input.GetMouseButtonDown(0))
-            dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
-        
+        if (Input.touchCount == 1)
+        {
+            Touch touch = Input.GetTouch(0);
 
-        if(Input.GetMouseButton(0)){
-            Vector3 difference = dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
-            cam.transform.position += difference;
+            if (touch.phase == TouchPhase.Began)
+            {
+                dragOrigin = cam.ScreenToWorldPoint(touch.position);
+            }
+
+            if (touch.phase == TouchPhase.Moved)
+            {
+                Vector3 difference = dragOrigin - cam.ScreenToWorldPoint(touch.position);
+                cam.transform.position += difference;
+            }
         }
     }
 }
