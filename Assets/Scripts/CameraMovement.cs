@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -32,6 +33,9 @@ public class CameraMovement : MonoBehaviour
         if (Input.touchCount == 1 && isPanning)
         {
             Touch touch = Input.GetTouch(0);
+
+            if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+                return;
 
             if (touch.phase == TouchPhase.Began)
             {

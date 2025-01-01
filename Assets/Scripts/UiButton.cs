@@ -8,6 +8,11 @@ public class UiButton : MonoBehaviour
     public GameObject uiLayout;
     public int buttonClick;
 
+    public bool zoom;
+
+    public CameraMovement cam;
+    public int camClick;
+
     void Start()
     {
 
@@ -21,9 +26,9 @@ public class UiButton : MonoBehaviour
 
     public void ButtonClickEnter()
     {
-        
+
         buttonClick += 1;
-        if(buttonClick % 2 == 0)
+        if (buttonClick % 2 == 0)
         {
             uiLayout.SetActive(false);
         }
@@ -32,5 +37,32 @@ public class UiButton : MonoBehaviour
             uiLayout.SetActive(true);
         }
     }
+
+    public void TurnOnPanning()
+    {
+        camClick += 1;
+        if (camClick % 2 == 0)
+        {
+            cam.isPanning = false;
+        }
+        else
+        {
+            cam.isPanning = true;
+        }
+    }
+
+    public void TurnOnZooming()
+    {
+        camClick += 1;
+        if (camClick % 2 == 0)
+        {
+            cam.isZooming = false;
+        }
+        else
+        {
+            cam.isZooming = true;
+        }
+    }
+    
 
 }
