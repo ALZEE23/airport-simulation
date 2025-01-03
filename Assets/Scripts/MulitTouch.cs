@@ -10,10 +10,10 @@ public class MultiTouch : MonoBehaviour
     private int rotationFinger2 = -1;
     private Vector3 lastPos;
     private Quaternion lastRot;
-
     public bool lastActive = false;
 
-    private void Start()
+
+    void Start()
     {
         lastPos = this.transform.position;
         lastRot = this.transform.rotation;
@@ -21,8 +21,14 @@ public class MultiTouch : MonoBehaviour
 
     void Update()
     {
+        DraggableItem drag = FindAnyObjectByType<DraggableItem>();
         if (Input.touchCount > 0)
         {
+            if (drag.isDraggable == true)
+                return;
+
+
+
             foreach (Touch touch in Input.touches)
             {
                 switch (touch.phase)
@@ -52,6 +58,10 @@ public class MultiTouch : MonoBehaviour
 
     void OnTouchDown(Touch touch)
     {
+        DraggableItem drag = FindAnyObjectByType<DraggableItem>();
+        if (drag.isDraggable == true)
+            return;
+
         Vector3 touchWorldPosition = GetTouchWorldPosition(touch);
         if (IsTouchingThisObject(touchWorldPosition))
         {
@@ -72,6 +82,10 @@ public class MultiTouch : MonoBehaviour
 
     void OnTouchDrag(Touch touch)
     {
+        DraggableItem drag = FindAnyObjectByType<DraggableItem>();
+        if (drag.isDraggable == true)
+            return;
+
         if (activeTouches.ContainsKey(touch.fingerId) && touch.fingerId != rotationFinger2)
         {
             transform.position = GetTouchWorldPosition(touch) + touchPositionOffsets[touch.fingerId];
@@ -80,6 +94,10 @@ public class MultiTouch : MonoBehaviour
 
     void OnTouchUp(Touch touch)
     {
+        DraggableItem drag = FindAnyObjectByType<DraggableItem>();
+        if (drag.isDraggable == true)
+            return;
+
         if (activeTouches.ContainsKey(touch.fingerId))
         {
             if (lastActive == true)
