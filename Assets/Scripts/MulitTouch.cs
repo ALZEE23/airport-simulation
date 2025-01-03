@@ -64,9 +64,11 @@ public class MultiTouch : MonoBehaviour
 
     void OnTouchDown(Touch touch)
     {
-        DraggableItem drag = FindAnyObjectByType<DraggableItem>();
-        if (drag.isDraggable == true)
-            return;
+        foreach (DraggableItem drag in draggableItems)
+        {
+            if (drag.isDraggable)
+                return;
+        }
 
         Vector3 touchWorldPosition = GetTouchWorldPosition(touch);
         if (IsTouchingThisObject(touchWorldPosition))
@@ -88,9 +90,11 @@ public class MultiTouch : MonoBehaviour
 
     void OnTouchDrag(Touch touch)
     {
-        DraggableItem drag = FindAnyObjectByType<DraggableItem>();
-        if (drag.isDraggable == true)
-            return;
+        foreach (DraggableItem drag in draggableItems)
+        {
+            if (drag.isDraggable)
+                return;
+        }
 
         if (activeTouches.ContainsKey(touch.fingerId) && touch.fingerId != rotationFinger2)
         {
@@ -100,9 +104,11 @@ public class MultiTouch : MonoBehaviour
 
     void OnTouchUp(Touch touch)
     {
-        DraggableItem drag = FindAnyObjectByType<DraggableItem>();
-        if (drag.isDraggable == true)
-            return;
+        foreach (DraggableItem drag in draggableItems)
+        {
+            if (drag.isDraggable)
+                return;
+        }
 
         if (activeTouches.ContainsKey(touch.fingerId))
         {

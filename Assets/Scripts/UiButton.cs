@@ -21,7 +21,8 @@ public class UiButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        TurnOnPanning();
+        TurnOnZooming();
     }
 
     public void ButtonClickEnter()
@@ -41,7 +42,7 @@ public class UiButton : MonoBehaviour
     public void TurnOnPanning()
     {
         camClick += 1;
-        if (camClick % 2 == 0)
+        if (camClick % 2 == 0 || camClick == 0)
         {
             cam.isPanning = false;
         }
@@ -54,7 +55,7 @@ public class UiButton : MonoBehaviour
     public void TurnOnZooming()
     {
         camClick += 1;
-        if (camClick % 2 == 0)
+        if (camClick % 2 == 0 || camClick == 0)
         {
             cam.isZooming = false;
         }
