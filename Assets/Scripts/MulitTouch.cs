@@ -11,21 +11,27 @@ public class MultiTouch : MonoBehaviour
     private Vector3 lastPos;
     private Quaternion lastRot;
     public bool lastActive = false;
+    private DraggableItem[] draggableItems;
 
 
     void Start()
     {
         lastPos = this.transform.position;
         lastRot = this.transform.rotation;
+        draggableItems = FindObjectsOfType<DraggableItem>();
     }
 
     void Update()
     {
-        DraggableItem drag = FindAnyObjectByType<DraggableItem>();
+        
+        
         if (Input.touchCount > 0)
         {
-            if (drag.isDraggable == true)
-                return;
+            foreach (DraggableItem drag in draggableItems)
+            {
+                if (drag.isDraggable)
+                    return;
+            }
 
 
 
