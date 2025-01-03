@@ -58,14 +58,16 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
 
         Vector2 rayPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(rayPosition, Vector2.zero);
-        if (hit.collider != null)
+        RaycastHit2D[] hits = Physics2D.RaycastAll(rayPosition, Vector2.zero);
+        foreach (RaycastHit2D hit in hits)
         {
             Debug.Log("Raycast hit 2D world object: " + hit.collider.gameObject.name);
-        }
-        else    
-        {
-            Debug.Log("No 2D world object hit by raycast.");
+            // Check if the hit object is the smaller object
+            if (hit.collider.gameObject == gameObject)
+            {
+                Debug.Log("Smaller object detected by raycast.");
+                break;
+            }
         }
 
     }

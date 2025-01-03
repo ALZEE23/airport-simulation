@@ -790,7 +790,7 @@ GameObject:
   - component: {fileID: 882914136}
   - component: {fileID: 882914142}
   - component: {fileID: 882914141}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -950,7 +950,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.04, y: 4.1}
+  m_AnchoredPosition: {x: -2.34, y: 2.53}
   m_SizeDelta: {x: 8.88, y: 16.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882914141
@@ -987,7 +987,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -1526,7 +1526,7 @@ GameObject:
   - component: {fileID: 1543665660}
   - component: {fileID: 1543665663}
   - component: {fileID: 1543665664}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1607,7 +1607,7 @@ Transform:
   m_GameObject: {fileID: 1543665658}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.24, y: -0.18, z: 0}
+  m_LocalPosition: {x: -4.62, y: 2.5, z: 0}
   m_LocalScale: {x: 0.18530697, y: 0.18530697, z: 0.18530697}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2583,6 +2583,6 @@ SceneRoots:
   - {fileID: 1156489996}
   - {fileID: 1732520512}
   - {fileID: 1645904064}
+  - {fileID: 1749105811}
   - {fileID: 1543665662}
   - {fileID: 882914140}
-  - {fileID: 1749105811}
